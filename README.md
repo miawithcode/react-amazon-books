@@ -1,4 +1,4 @@
-## Add CSS 
+## Use CSS in JSX
 
 ### External Styles
 1. 导入 CSS 文件时一定要加 `css` 拓展名，导入 JavaScript/JSX 文件则不是必须要拓展名
@@ -21,6 +21,25 @@
       }
       return <h4 style={inlineHeadingStyles}>Carole P. Roman</h4>;
     };
+    ```
+
+## Use JavaScript in JSX
+> value in `{}` must be an expression (return value), can't be a statement.
+> 需要用在 JSX 中用 JavaScript 时，就在 `{}` 中写 JavaScript 代码，不仅能获取变量，也能用方法，比如：`{title.toUpperCase()}`
+
+1. Expression ✅ - 可以写在组件里，可以写在组件外，也可以写在外部文件然后导入。
+    ```jsx
+    const Book = () => {
+      const title = 'The Big Book of Silly Jokes for Kids';
+    return <h2>{title}</h2>
+    }
+    ```
+2. Statement ❌
+    ```jsx
+    const Book = () => {
+    // This will not work
+    return <h2>{let x = 6}</h2>
+    }
     ```
 
 ## Local Images

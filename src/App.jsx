@@ -1,5 +1,5 @@
 import React from 'react';
-import "./index.css"
+import "./app.css"
 
 function BookList() {
   return (
@@ -13,22 +13,18 @@ function BookList() {
 }
 
 const Book = () => {
+  const title = 'The Big Book of Silly Jokes for Kids';
+  const author = 'Carole P. Roman';
   return (
     <article className='book'>
-      <Image />
-      <Title />
-      <Author />
+      <img
+    src="https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/81AgoOPzO6L._SY522_.jpg"
+    alt="The Big Book of Silly Jokes for Kids"
+      />
+      <h2>{title}</h2>
+      <h4>{author.toUpperCase()}</h4>
     </article>
   );
 };
-
-const Image = () => (
-  <img
-    src="https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/81AgoOPzO6L._SY522_.jpg"
-    alt="The Big Book of Silly Jokes for Kids"
-  />
-);
-const Title = () => <h2>The Big Book of Silly Jokes for Kids</h2>;
-const Author = () => <h4 style={{ color: '#161A30', fontSize: '0.75rem', marginTop: '0.5rem' }}>Carole P. Roman</h4>;
 
 export default BookList;
