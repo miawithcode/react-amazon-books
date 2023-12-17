@@ -1,5 +1,9 @@
 <h1>React Basic</h1>
 
+用一个 Book List 学习 React 中的基本概念：组件、props 和 Events 等。
+
+![](src/assets/screenshot.png)
+
 <h2>Table of Contents</h2>
 
 - [Use CSS in JSX](#use-css-in-jsx)
@@ -12,8 +16,9 @@
   - [CSS Trick](#css-trick)
 - [Data: Object \& Mapping](#data-object--mapping)
   - [对象解构](#对象解构)
-- [Key Props](#key-props)
-  - [在哪里设置 Key Props](#在哪里设置-key-props)
+- [Key Prop](#key-prop)
+  - [在哪里设置 Key Prop](#在哪里设置-key-prop)
+- [Object as a Prop](#object-as-a-prop)
 
 ## Use CSS in JSX
 
@@ -179,7 +184,7 @@ function BookList() {
 }
 ```
 
-## Key Props
+## Key Prop
 
 > Keys 是 React 中用于标识列表中每个元素的唯一标识符。在 React 使用列表时，每个列表项都需要一个唯一的key prop。
 > 唯一的 key 这有助于React识别哪些项目已经改变（添加/删除/重新排序）。唯一的key有助于React更好地管理组件状态和性能。
@@ -188,5 +193,29 @@ Key props 是唯一的，不一定需要是数字
 - 不要使用数组的索引作为key
 - 不要使用不稳定的key，比如使用Math.random()生成的key。
 
-### 在哪里设置 Key Props
+### 在哪里设置 Key Prop
 在遍历数据的地方设置 Key Props，在返回的 item 上设置。（set on the item that you're returning）
+
+## Object as a Prop
+当有一个 Object，需要一个一个传递 Object 中的属性作为 props，用 Spread Operator `...`
+
+```jsx
+function BookList() {
+  return (
+    <section className="booklist">
+      {books.map((book) => { 
+        return <Book {...book} key={book.id} />
+      })}
+    </section>
+  );
+}
+
+const Book = ({ img, title, author }) => {
+  return (
+    <article className="book">
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <h4>{author}</h4>
+    </article>
+  );
+};```
