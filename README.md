@@ -1,3 +1,14 @@
+<h1>React Basic</h1>
+
+<h2>Table of Contents</h2>
+
+- [Use CSS in JSX](#use-css-in-jsx)
+  - [External Styles](#external-styles)
+  - [Inline Styles](#inline-styles)
+- [Use JavaScript in JSX](#use-javascript-in-jsx)
+- [Local Images](#local-images)
+- [Props](#props)
+
 ## Use CSS in JSX
 
 ### External Styles
@@ -51,3 +62,28 @@ React 项目中添加图片有3种方法：
       <img src="./images/imageName.extension" />
       ```
 3. ✅ Local Images (`src` folder) - assets get optimized.
+
+## Props
+> props 是用于在组件之间传递数据的机制，用于将数据从一个组件传递到另一个组件。
+> props 是只读的，这意味着一旦组件接收到 props，就无法更改它们。
+> props will only display if it's actually provided
+
+1. 直接在元素传递 props 时
+   1. 如果是 `string` 用引号
+   2. 如果是 `number` 用花括号 `{}`
+    ```jsx
+    <Book title="random title" number={1} />
+    ```
+2. props 实际上是 Object
+    ```jsx
+    function BookList() {
+    return <Book title="random title"  number={1} />
+    }
+
+    const Book = (props) => {
+      return (
+        <p>{props.title}</p>
+        <p>{props.number}</p>
+      )
+    }
+    ```

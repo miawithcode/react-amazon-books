@@ -1,28 +1,31 @@
 import React from 'react';
 import "./app.css"
 
+const title = 'The Big Book of Silly Jokes for Kids';
+const author = 'Carole P. Roman';
+const img =
+  'https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/81AgoOPzO6L._SY522_.jpg';
+
 function BookList() {
   return (
-    <section className='booklist'>
-      <Book />
-      <Book />
-      <Book />
-      <Book />
+    <section className="booklist">
+      <Book author={author} title={title} img={img} />
+      <Book author={author} title={title} img={img} />
+      <Book author={author} title={title} img={img} />
+      <Book author={author} title={title} img={img} />
     </section>
   );
 }
 
-const Book = () => {
-  const title = 'The Big Book of Silly Jokes for Kids';
-  const author = 'Carole P. Roman';
+const Book = (props) => {
   return (
     <article className='book'>
       <img
-    src="https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/81AgoOPzO6L._SY522_.jpg"
-    alt="The Big Book of Silly Jokes for Kids"
+        src={props.img}
+        alt={props.title}
       />
-      <h2>{title}</h2>
-      <h4>{author.toUpperCase()}</h4>
+      <h2>{props.title}</h2>
+      <h4>{props.author}</h4>
     </article>
   );
 };
