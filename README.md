@@ -11,7 +11,9 @@
   - [Children Props](#children-props)
   - [CSS Trick](#css-trick)
 - [Data: Object \& Mapping](#data-object--mapping)
-  - [对象结构](#对象结构)
+  - [对象解构](#对象解构)
+- [Key Props](#key-props)
+  - [在哪里设置 Key Props](#在哪里设置-key-props)
 
 ## Use CSS in JSX
 
@@ -159,7 +161,7 @@ function BookList() {
 1. 在 React 中，不能直接 render Objects
 2. 所以要用 `map()` 遍历和返回每一个属性
 
-### 对象结构
+### 对象解构
 
 下面这段代码中的 `const { img, title, author } = book;` 是 ES6 的对象结构，从对象中提取多个属性并将它们赋值给变量。
 
@@ -176,3 +178,15 @@ function BookList() {
   );
 }
 ```
+
+## Key Props
+
+> Keys 是 React 中用于标识列表中每个元素的唯一标识符。在 React 使用列表时，每个列表项都需要一个唯一的key prop。
+> 唯一的 key 这有助于React识别哪些项目已经改变（添加/删除/重新排序）。唯一的key有助于React更好地管理组件状态和性能。
+
+Key props 是唯一的，不一定需要是数字
+- 不要使用数组的索引作为key
+- 不要使用不稳定的key，比如使用Math.random()生成的key。
+
+### 在哪里设置 Key Props
+在遍历数据的地方设置 Key Props，在返回的 item 上设置。（set on the item that you're returning）
