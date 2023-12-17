@@ -29,6 +29,6 @@ const Image = () => (
   />
 );
 const Title = () => <h2>The Big Book of Silly Jokes for Kids</h2>;
-const Author = () => <h4>Carole P. Roman</h4>;
+const Author = () => <h4 style={{ color: '#161A30', fontSize: '0.75rem', marginTop: '0.5rem' }}>Carole P. Roman</h4>;
 
 export default BookList;
