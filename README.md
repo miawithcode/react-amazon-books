@@ -10,6 +10,8 @@
 - [Props](#props)
   - [Children Props](#children-props)
   - [CSS Trick](#css-trick)
+- [Data: Object \& Mapping](#data-object--mapping)
+  - [对象结构](#对象结构)
 
 ## Use CSS in JSX
 
@@ -150,5 +152,27 @@ function BookList() {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-itmes: start; /* key code */
+}
+```
+
+## Data: Object & Mapping
+1. 在 React 中，不能直接 render Objects
+2. 所以要用 `map()` 遍历和返回每一个属性
+
+### 对象结构
+
+下面这段代码中的 `const { img, title, author } = book;` 是 ES6 的对象结构，从对象中提取多个属性并将它们赋值给变量。
+
+与其重复访问 book 对象的属性（如`book.img`、`book.title`、`book.author`），不如一次性提取它们，并直接使用`img`、`title`和`author`。
+```jsx
+function BookList() {
+  return (
+    <section className="booklist">
+      {books.map((book) => { 
+        const { img, title, author } = book;
+        return <Book img={img} title={title} author={author} />
+      })}
+    </section>
+  );
 }
 ```
