@@ -19,6 +19,8 @@
 - [Key Prop](#key-prop)
   - [在哪里设置 Key Prop](#在哪里设置-key-prop)
 - [Object as a Prop](#object-as-a-prop)
+- [Event](#event)
+- [Mindset](#mindset)
 
 ## Use CSS in JSX
 
@@ -218,4 +220,25 @@ const Book = ({ img, title, author }) => {
       <h4>{author}</h4>
     </article>
   );
-};```
+};
+```
+
+## Event
+1. 常用的Event有3个：
+   - `onClick` - 点击事件
+   - `onSubmit` - 提交事件
+   - `onChange` - input中的内容改变
+2. 处理事件需要3个东西：元素（element）、事件（event）和回调函数（callback function）
+    ```jsx
+    const EventExample = () => {
+      const handleClick = () => {
+        console.log('handle click')
+      }
+
+      return <button onClick={handleClick}>Click Me</button>
+    };
+    ```
+
+## Mindset
+
+1. 添加组件时，先随便在组件里写一点内容，确保组件有被正确加载，再写真正的代码逻辑。
