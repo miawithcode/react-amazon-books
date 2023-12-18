@@ -21,6 +21,7 @@
 - [Object as a Prop](#object-as-a-prop)
 - [Event](#event)
   - [Form](#form)
+  - [Anonymous Function](#anonymous-function)
 - [Mindset](#mindset)
 
 ## Use CSS in JSX
@@ -298,6 +299,13 @@ const Book = ({ img, title, author }) => {
           <button type="submit" onClick={handleFormSubmission}>Submit</button>
       </form>
     }
+    ```
+
+### Anonymous Function
+Instead of 在事件中传递回调函数，可以在事件中直接写匿名函数。
+
+    ```jsx
+    return <button onClick={() => console.log('Hello World')}>Click me</button>
     ```
 
 ## Mindset
