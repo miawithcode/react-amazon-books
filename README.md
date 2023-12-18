@@ -20,6 +20,7 @@
   - [在哪里设置 Key Prop](#在哪里设置-key-prop)
 - [Object as a Prop](#object-as-a-prop)
 - [Event](#event)
+  - [Form](#form)
 - [Mindset](#mindset)
 
 ## Use CSS in JSX
@@ -237,6 +238,66 @@ const Book = ({ img, title, author }) => {
 
       return <button onClick={handleClick}>Click Me</button>
     };
+    ```
+
+### Form
+
+1. 用 `event.target.value` 获取 `input` 的值
+    ```jsx
+    const EventExample = () => {
+      const handleInputForm = (e) => {
+        console.log(e.target.value);
+      };
+
+      return <input type="text" onChange={handleInputForm} />
+    };
+    ```
+2. 表单的默认行为是将数据提交到一个URL，可以用 `preventDefault` 阻止事件的默认行为。
+3. 响应表单提交事件
+    ```jsx
+    const ExampleFormSubmission = () => {
+      const handleFormSubmission = (e) => {
+        e.preventDefault();
+        console.log('form submitted');
+      };
+
+      return <form onSubmit={handleFormSubmission}>
+          <h1>Form</h1>
+          <input type="text" />
+      </form>
+    }
+    ```
+4. 用按钮响应表达提交事件
+   1. 提交函数写在`form`元素里
+    ```jsx
+    const ExampleFormSubmission = () => {
+      const handleFormSubmission = (e) => {
+        e.preventDefault();
+        console.log('form submitted');
+      };
+
+      return <form onSubmit={handleFormSubmission}>
+          // ...
+          <input type="text" />
+          <button type="submit">Submit</button>
+      </form>
+    }
+    ```
+    2. 提交函数写在 `button` 里
+    > `type="button"`不会提交表单。
+        ```jsx
+    const ExampleFormSubmission = () => {
+      const handleFormSubmission = (e) => {
+        e.preventDefault();
+        console.log('form submitted');
+      };
+
+      return <form>
+          // ...
+          <input type="text" />
+          <button type="submit" onClick={handleFormSubmission}>Submit</button>
+      </form>
+    }
     ```
 
 ## Mindset
