@@ -22,6 +22,7 @@
 - [Event](#event)
   - [Form](#form)
   - [Anonymous Function](#anonymous-function)
+- [Prop Drilling](#prop-drilling)
 - [Mindset](#mindset)
 
 ## Use CSS in JSX
@@ -307,6 +308,15 @@ Instead of 在事件中传递回调函数，可以在事件中直接写匿名函
     ```jsx
     return <button onClick={() => console.log('Hello World')}>Click me</button>
     ```
+
+## Prop Drilling
+> React data flow: can only pass props down
+
+Prop Drilling 是父组件将数据传递给子组件，然后子组件再将数据传递给它们自己的子组件，以此类推，直到数据到达需要使用它的目标组件为止。
+
+但这种方式会导致代码冗余，降低可维护性。
+
+应该用 Redux 或 Context API 来传递数据，避免用 Prop Drilling。
 
 ## Mindset
 
