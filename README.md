@@ -23,6 +23,7 @@
   - [Form](#form)
   - [Anonymous Function](#anonymous-function)
 - [Prop Drilling](#prop-drilling)
+- [Invoke function in child component](#invoke-function-in-child-component)
 - [Mindset](#mindset)
 
 ## Use CSS in JSX
@@ -317,6 +318,38 @@ Prop Drilling 是父组件将数据传递给子组件，然后子组件再将数
 但这种方式会导致代码冗余，降低可维护性。
 
 应该用 Redux 或 Context API 来传递数据，避免用 Prop Drilling。
+
+## Invoke function in child component
+
+在子组件中调用在父组件中定义的函数有2种方法：
+1. 在子组件中创建一个函数调用父组件的函数，再在事件中调用子组件中新定义的函数
+    ```jsx
+    function BookList() {
+      const getBook = (id) => {
+        const book = books.find((book) => book.id === id);
+        console.log(book);
+      };
+
+      return <Book {...book} key={book.id} getBook={getBook}/>;
+    }
+
+    const Book = ({ getBook, id }) => {
+
+      const getSingleBook = () => {
+        getBook(id);
+      }
+
+      return <button onClick={getSingleBook}>Search Book</button>
+    };
+    ```
+2. 在事件中用匿名函数调用父组件中的函数
+    ```jsx
+    // 其他代码
+    const Book = ({ getBook, id }) => {
+
+      return <button onClick={() => getBook(id)}>Search Book</button>
+    };
+    ```
 
 ## Mindset
 
