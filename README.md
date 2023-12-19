@@ -24,6 +24,9 @@
   - [Anonymous Function](#anonymous-function)
 - [Prop Drilling](#prop-drilling)
 - [Invoke function in child component](#invoke-function-in-child-component)
+- [ES6 Module](#es6-module)
+  - [Export](#export)
+  - [Import](#import)
 - [Mindset](#mindset)
 
 ## Use CSS in JSX
@@ -350,6 +353,23 @@ Prop Drilling 是父组件将数据传递给子组件，然后子组件再将数
       return <button onClick={() => getBook(id)}>Search Book</button>
     };
     ```
+
+## ES6 Module
+
+### Export
+在 export function 的时候，有 named 和 default 两种方式。
+ 1. 如果文件中只有一个组件，用 `export default` 导出
+ 2. 如果文件中有多个组件, 用 `export 组件名字` 导出
+
+### Import
+1. 导入 default 组件时，可以用任意的命名，而且不用花括号
+    ```jsx
+    import banana from './books.js'
+    ```
+2. 导入 named 组件时，要用和组件名一模一样的名字，要加花括号
+   ```jsx
+   import { books } from './books.js'
+   ```
 
 ## Mindset
 
