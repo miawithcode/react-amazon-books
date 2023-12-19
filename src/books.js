@@ -1,20 +1,24 @@
+import img1 from './images/book-1.jpg';
+import img2 from './images/book-2.jpg';
+import img3 from './images/book-3.jpg';
+
 export const books = [
   {
     title: 'The Big Book of Silly Jokes for Kids',
     author: 'Carole P. Roman',
-    img: 'https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/81AgoOPzO6L._SY522_.jpg',
+    img: img1,
     id: 1,
   },
   {
     title: 'How To Draw Everything',
     author: 'Emma Greene',
-    img: 'https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/613znXUaEWL._SY522_.jpg',
+    img: img2,
     id: 2,
   },
   {
     title: 'How To Draw 101 Things For Kids',
     author: 'Sophia Elizabeth',
-    img: 'https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/61GI6ossJJL._SY522_.jpg',
+    img: img3,
     id: 3,
   },
 ];
